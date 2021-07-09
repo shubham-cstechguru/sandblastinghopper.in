@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /admin-control
+
+Sitemap: https://www.sandblastinghopper.in/sitemap.xml

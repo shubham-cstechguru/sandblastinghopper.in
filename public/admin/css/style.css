@@ -1,0 +1,59 @@
+/*navbar*/
+body{
+	color: red;
+}
+nav ul{
+	display: inline-block;
+}
+nav ul li{
+	list-style: none;
+	background: #fff;
+	border-radius: 30px;
+	padding: 10px 0;
+	width: 130px;
+	text-align: center;
+
+}
+nav ul li a{
+	color: #45cfbe;
+	font-weight: bold;
+	font-family: 'vibrocentricregular';
+}
+nav ul li a:hover{
+	
+	text-decoration: none;
+	color: deeppink;
+
+}
+.logout{
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: bold;
+	padding-right: 10px;
+}
+.site_nav{
+	background: #e9ecf0;
+	text-align: center;
+	padding: 20px 0;
+	position: sticky;
+	top: 0;
+	z-index: 99;
+}
+.login-btn{
+	background: #45cfbe;
+	color: #fff;
+	padding: 5px 40px;
+	margin-left: 35%;
+	margin-top: 30px;
+	text-transform: uppercase;
+	text-align: center;
+	border: 0;
+	border-radius: 5px;
+	font-weight: bold;
+	font-size: 20px;
+	margin: auto;
+}
+.login-input{
+	border-radius: 20px;
+	
+}
