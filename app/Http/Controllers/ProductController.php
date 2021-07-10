@@ -14,7 +14,7 @@ class ProductController extends BaseController {
     public function index() {
     	
         
-        $product = Technology::latest()->paginate(12);
+        $product = Technology::where([['prod_city', '=', null], ['prod_country', '=', null]])->latest()->paginate(12);
         $data = compact('product');
     	
     	return view('frontend.pages.product',$data);

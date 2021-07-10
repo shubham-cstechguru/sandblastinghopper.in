@@ -22,9 +22,9 @@ $setting = App\Model\Setting::findOrFail(1);
     <!-- <link href="../../assets/libs/flot/css/float-chart.css" rel="stylesheet"> -->
     {{Html::style('admin/css/float-chart.css')}}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     {{Html::style('admin/css/style.min.css')}}
     {{Html::style('admin/icomoon/style.css')}}
 
@@ -42,15 +42,15 @@ $setting = App\Model\Setting::findOrFail(1);
 
 <body>
 
-    
+
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
     <div id="main-wrapper">
-    
-    @section('header')
 
-    <header class="topbar" data-navbarbg="skin5">
+        @section('header')
+
+        <header class="topbar" data-navbarbg="skin5">
             <nav class="navbar top-navbar navbar-expand-md navbar-dark">
                 <div class="navbar-header" data-logobg="skin5">
                     <!-- This is for the sidebar toggle which is visible on mobile only -->
@@ -59,15 +59,15 @@ $setting = App\Model\Setting::findOrFail(1);
                     <!-- Logo -->
                     <!-- ============================================================== -->
                     <a class="navbar-brand" href="{{url('admin-control/dashboard')}}" style="border-bottom: 1px solid #fff;">
-                        
-                         
+
+
                         <span class="logo-text" style="font-family: sans;">
-                             <!-- dark Logo text -->
+                            <!-- dark Logo text -->
                             <img src="{{url('imgs/'.$setting->logo) }}" alt="logo" class="light-logo ml-5" width="60" style="padding: 3px;" />
-                             <!-- <img src="{{url('admin/imgs/logo-text.png')}}" alt="homepage" class="light-logo" /> -->                            
+                            <!-- <img src="{{url('admin/imgs/logo-text.png')}}" alt="homepage" class="light-logo" /> -->
                         </span>
                         <!-- Logo icon -->
-                     
+
                     </a>
                     <!-- ============================================================== -->
                     <!-- End Logo -->
@@ -89,7 +89,7 @@ $setting = App\Model\Setting::findOrFail(1);
                         <!-- ============================================================== -->
                         <!-- create new -->
                         <!-- ============================================================== -->
-                       
+
                     </ul>
                     <!-- ============================================================== -->
                     <!-- Right side toggle and nav items -->
@@ -98,7 +98,7 @@ $setting = App\Model\Setting::findOrFail(1);
                         <!-- ============================================================== -->
                         <!-- Comment -->
                         <!-- ============================================================== -->
-                        
+
                         <!-- ============================================================== -->
                         <!-- End Messages -->
                         <!-- ============================================================== -->
@@ -117,7 +117,7 @@ $setting = App\Model\Setting::findOrFail(1);
                                 <a class="dropdown-item" href="{{url('admin-control/setting/edit/1')}}"><i class="ti-settings m-r-5 m-l-5"></i> Setting</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{url('admin-control/logout')}}"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
-                                
+
                             </div>
                         </li>
                         <!-- ============================================================== -->
@@ -127,18 +127,18 @@ $setting = App\Model\Setting::findOrFail(1);
                 </div>
             </nav>
         </header>
-    @show
+        @show
 
 
-   	
-    		<aside class="left-sidebar"  data-sidebarbg="skin5">
+
+        <aside class="left-sidebar" data-sidebarbg="skin5">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav" class="p-t-30">
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{url('admin-control/')}}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
-                        
+
                         <!-- <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Service</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item"><a href="{{url('admin-control/service/add')}}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> Add </span></a></li>
@@ -184,98 +184,120 @@ $setting = App\Model\Setting::findOrFail(1);
                                 <li class="sidebar-item"><a href="{{url('admin-control/change-password')}}" class="sidebar-link"><i class="ti-email m-r-5 m-l-5"></i><span class="hide-menu">Change Password </span></a></li>
                             </ul>
                         </li>
+
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('country.index')}}" aria-expanded="false"><i class="icon-flag"></i><span class="hide-menu">Country</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('city.index')}}" aria-expanded="false"><i class="icon-flag"></i><span class="hide-menu">City</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{url('admin-control/logout')}}" aria-expanded="false"><i class="fa fa-power-off"></i><span class="hide-menu">Logout</span></a></li>
-                        
-                        
-                         
-                        
+
+
+
+
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
             </div>
             <!-- End Sidebar scroll-->
         </aside>
-    	
-    		
-    		@yield('contant')    
 
-    	
-    
-   
 
-	<div class="container">
-		
-	</div>
+        @yield('contant')
 
-	@section('footer')
-		
-	@show
 
-{{ Html::script('admin/js/validation.js') }}
-{{ Html::script('admin/js/jquery.min.js') }}
-{{ Html::script('admin/js/popper.min.js') }}
-{{ Html::script('admin/js/bootstrap.min.js') }}
-{{ Html::script('admin/js/perfect-scrollbar.jquery.min.js') }}
-<!-- {{ Html::script('admin/js/perfect-scrollbar.jquery.min.js') }} -->
-{{ Html::script('admin/js/sparkline.js') }}
-{{ Html::script('admin/js/waves.js') }}
-{{ Html::script('admin/js/sidebarmenu.js') }}
-{{ Html::script('admin/js/custom.min.js') }}
-<!-- {{ Html::script('admin/js/waves.js') }} -->
-{{ Html::script('admin/js/excanvas.js') }}
-{{ Html::script('admin/js/jquery.flot.js') }}
-{{ Html::script('admin/js/jquery.flot.pie.js') }}
-{{ Html::script('admin/js/jquery.flot.time.js') }}
-{{ Html::script('admin/js/jquery.flot.stack.js') }}
-{{ Html::script('admin/js/jquery.flot.crosshair.js') }}
-{{ Html::script('admin/js/jquery.flot.tooltip.min.js') }}
-{{ Html::script('admin/js/chart-page-init.js') }}
-{{ Html::script('admin/js/voucher-codes.js') }}
-{{ Html::script('admin/js/tinymce.min.js') }}
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript">
-	// Editor TinyMCE
-tinymce.init({
-selector: '.editor',
-plugins: "code, link, image, textcolor, emoticons, hr, lists, charmap, table, tiny_mce_wiris, fullscreen",
-fontsizeselect: true,
-browser_spellcheck: true,
-menubar: false,
-toolbar: 'bold italic underline strikethrough |formatselect h1 h2 h3 h4 link | table hr superscript subscript | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | uploadImageButton | code | fullscreen',
 
-// forced_root_block : 'div',
-branding: false,
-protect: [
-/\<\/?(if|endif)\>/g, // Protect <if> & </endif>
-/\<xsl\:[^>]+\>/g, // Protect <xsl:...>
-/\<script\:[^>]+\>/g, // Protect <xsl:...>
-/<\?php.*?\?>/g // Protect php code
-],
-images_upload_credentials: true,
-file_browser_callback_types: 'image',
-image_dimensions: true,
-automatic_uploads: true,
 
-relative_urls: false,
-remove_script_host: false,
-// font_format: "devlys 010normal=devlys 010normal",
-setup: function(editor) {
-// editor.ui.registry.addButton('uploadImageButton', {
-// icon: 'image',
-// onAction: function(_) {
-// $('#mediaModal').modal('show');
-// }
-// });
-}
-});
 
-</script>
+        <div class="container">
 
-<script>
-    $(document).ready(function () {
-        $('#table_id').DataTable();
-    });
-</script>	
-    
+        </div>
+
+        @section('footer')
+
+        @show
+
+        {{ Html::script('admin/js/validation.js') }}
+        {{ Html::script('admin/js/jquery.min.js') }}
+        {{ Html::script('admin/js/popper.min.js') }}
+        {{ Html::script('admin/js/bootstrap.min.js') }}
+        {{ Html::script('admin/js/perfect-scrollbar.jquery.min.js') }}
+        <!-- {{ Html::script('admin/js/perfect-scrollbar.jquery.min.js') }} -->
+        {{ Html::script('admin/js/sparkline.js') }}
+        {{ Html::script('admin/js/waves.js') }}
+        {{ Html::script('admin/js/sidebarmenu.js') }}
+        {{ Html::script('admin/js/custom.min.js') }}
+        <!-- {{ Html::script('admin/js/waves.js') }} -->
+        {{ Html::script('admin/js/excanvas.js') }}
+        {{ Html::script('admin/js/jquery.flot.js') }}
+        {{ Html::script('admin/js/jquery.flot.pie.js') }}
+        {{ Html::script('admin/js/jquery.flot.time.js') }}
+        {{ Html::script('admin/js/jquery.flot.stack.js') }}
+        {{ Html::script('admin/js/jquery.flot.crosshair.js') }}
+        {{ Html::script('admin/js/jquery.flot.tooltip.min.js') }}
+        {{ Html::script('admin/js/chart-page-init.js') }}
+        {{ Html::script('admin/js/voucher-codes.js') }}
+        {{ Html::script('admin/js/tinymce.min.js') }}
+        <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript">
+            // Editor TinyMCE
+            tinymce.init({
+                selector: '.editor',
+                plugins: "code, link, image, textcolor, emoticons, hr, lists, charmap, table, tiny_mce_wiris, fullscreen",
+                fontsizeselect: true,
+                browser_spellcheck: true,
+                menubar: false,
+                toolbar: 'bold italic underline strikethrough |formatselect h1 h2 h3 h4 link | table hr superscript subscript | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | uploadImageButton | code | fullscreen',
+
+                // forced_root_block : 'div',
+                branding: false,
+                protect: [
+                    /\<\/?(if|endif)\>/g, // Protect <if> & </endif>
+                    /\<xsl\:[^>]+\>/g, // Protect <xsl:...>
+                    /\<script\:[^>]+\>/g, // Protect <xsl:...>
+                    /<\?php.*?\?>/g // Protect php code
+                ],
+                images_upload_credentials: true,
+                file_browser_callback_types: 'image',
+                image_dimensions: true,
+                automatic_uploads: true,
+
+                relative_urls: false,
+                remove_script_host: false,
+                // font_format: "devlys 010normal=devlys 010normal",
+                setup: function(editor) {
+                    // editor.ui.registry.addButton('uploadImageButton', {
+                    // icon: 'image',
+                    // onAction: function(_) {
+                    // $('#mediaModal').modal('show');
+                    // }
+                    // });
+                }
+            });
+        </script>
+
+        <script>
+            $(document).ready(function() {
+                $('#table_id').DataTable();
+            });
+
+            function handleDelete(id) {
+                var deletename = $('#deletename').val();
+                var form = document.getElementById('deleteFormModal')
+                form.action = '/admin-control/' + deletename + '/' + id
+                $('#deleteModal').modal('show')
+            }
+
+            function addcity(id) {
+                var form1 = document.getElementById('cityFormModal')
+                form1.action = '/admin-control/product/product-city/' + id
+                $('#cityModal').modal('show')
+            }
+
+            function addcountry(id) {
+                var form2 = document.getElementById('countryFormModal')
+                form2.action = '/admin-control/product/product-country/' + id
+                $('#countryModal').modal('show')
+            }
+        </script>
+
 </body>
+
 </html>

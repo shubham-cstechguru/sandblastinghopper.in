@@ -10,6 +10,8 @@ use Illuminate\Support\Str;
 use App\model\Technology;
 
 use App\model\Category;
+use App\model\City;
+use App\model\Country;
 
 class TechnologyController extends Controller{
    
@@ -22,9 +24,12 @@ class TechnologyController extends Controller{
         }
 
 
-        $lists1 = $query->paginate(10);        
+        $lists1 = $query->paginate(10);     
+        
+        $cities = City::get();
+        $countries = Country::get();
 
-        $data = compact( 'lists1' ); // Variable to array convert
+        $data = compact( 'lists1', 'cities', 'countries' ); // Variable to array convert
         return view('backend.inc.technology.index', $data);
     }
     

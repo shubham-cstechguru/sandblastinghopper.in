@@ -13,7 +13,7 @@ use Illuminate\Routing\Controller as BaseController;
 class HomeController extends BaseController {
     public function index() {
     	
-        $product = Technology::latest()->paginate(16);
+        $product = Technology::where([['prod_city', '=', null], ['prod_country', '=', null]])->latest()->paginate(16);
         $category = Category::latest()->paginate(16);
         $blog = Blog::latest()->paginate(4);
         $data = compact('product','category','blog');
