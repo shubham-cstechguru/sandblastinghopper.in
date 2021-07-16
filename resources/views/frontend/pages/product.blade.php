@@ -8,11 +8,6 @@
 
 <div class="page-top-info row">
     <div class="container">
-        @if(isset($name))
-        <h4>{{ $name }}</h4>
-        @else
-        <h4>Products</h4>
-        @endif
         <div class="site-pagination">
             <a href="{{ url('/') }}">Home</a> /
             @if(isset($name)) {{ $name }} @else Product @endif
@@ -39,9 +34,9 @@
                         <div class="card">
                             <a href="{{url('product/'.$list->slug) }}">
                                 @if($list->image!='')
-                                <img src="{{url('imgs/product/'.$list->image)}}" alt="{{ $list->title }}" width="251">
+                                <img class="lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/product/'.$list->image)}}" alt="{{ $list->title }}" width="251">
                                 @else
-                                <img class="" src="{{url('imgs/unavailable-image-300x225.jpg')}}" alt="{{ $list->title }}">
+                                <img class="lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/unavailable-image-300x225.jpg')}}" alt="{{ $list->title }}">
                                 @endif
                             </a>
                             <div class="pi-text my-3" style="min-height:50px;">

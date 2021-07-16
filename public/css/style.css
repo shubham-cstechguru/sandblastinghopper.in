@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -28,7 +30,38 @@ body {
 img {
     width: 100%;
 }
+p, h1, h2, h3, h4, h5, h6{
+    font-family: 'Noto Sans JP', sans-serif !important;
+    letter-spacing: 1px !important;
+}
 
+.product-desc p {
+    font-size: 18px !important;
+}
+
+.product-desc h1 {
+    font-size: 1.5rem !important;
+    padding: 11px 0px !important;
+    font-weight: 600 !important;
+}
+
+.product-desc h2 {
+    font-size: 1.4rem !important;
+    padding: 11px 0px !important;
+    font-weight: 600 !important;
+}
+
+.product-desc h3 {
+    font-size: 1.3rem !important;
+    font-weight: 600 !important;
+    padding: 11px 0px !important;
+}
+
+.product-desc h4 {
+    font-size: 1.2rem !important;
+    padding: 11px 0px !important;
+    font-weight: 600 !important;
+}
 .search-btn {
     color: #fff;
     padding: 6px 7px 6px 7px;
@@ -74,6 +107,7 @@ img {
     text-align: justify;
     line-height: 45px;
     font-size: 17px;
+    list-style: inside;
 }
 
 .header-nav ul {
@@ -205,7 +239,6 @@ h2 {
 .tell-us-contant {
     border: 1px solid #aaa;
     border-radius: 3px;
-    width: 748px;
     /*height: 100px;*/
     margin: auto;
     background: #f1f1f1;

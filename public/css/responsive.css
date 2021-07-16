@@ -6,6 +6,9 @@
     .top-margin {
         margin-top: 128px;
     }
+    .tell-us-contant {
+        width: 748px;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1500px) {
@@ -14,6 +17,12 @@
     }
     .top-margin {
         margin-top: 128px;
+    }
+}
+
+@media (min-width: 992px) {
+    #navbarSupportedContent {
+        margin-left: 250px !important;
     }
 }
 

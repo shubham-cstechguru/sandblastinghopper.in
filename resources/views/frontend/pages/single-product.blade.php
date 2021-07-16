@@ -9,7 +9,7 @@ $title = $slug->seo_title!='' ? $slug->seo_title : $slug->title;
 @section('contant')
 
 <div class="row">
-	<div class="col-lg-3 px-0 mt-1">
+	<div class="col-lg-3 px-0 mt-1" id="sidebar_data">
 		<div class="sticky">
 
 			<p class="product-range my-0">All Categories & Products</p>
@@ -104,7 +104,7 @@ $title = $slug->seo_title!='' ? $slug->seo_title : $slug->title;
 
 	<div class="col-lg-9 mt-1">
 		<div class="col-md-12" style="padding:0px;">
-			<img src="{{ url('imgs/blastrooms_banner.jpg')}}" height="150" alt="{{ $slug->title }}">
+			<img class="lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{ url('imgs/blastrooms_banner.jpg')}}" height="150" alt="{{ $slug->title }}">
 		</div>
 		<div class="col-md-12 mt-1" style="background: #f1f1f1">
 			<div class="frnt-url">
@@ -135,9 +135,9 @@ $title = $slug->seo_title!='' ? $slug->seo_title : $slug->title;
 					<div class="sticky">
 						<div>
 							@if($slug->image!='')
-							<img src="{{url('imgs/product/'.$slug->image)}}" alt="{{ $slug->title }}">
+							<img class="lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/product/'.$slug->image)}}" alt="{{ $slug->title }}">
 							@else
-							<img class="" src="{{url('imgs/unavailable-image-300x225.jpg')}}" alt="{{ $list->title }}">
+							<img class="lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/unavailable-image-300x225.jpg')}}" alt="{{ $list->title }}">
 							@endif
 						</div>
 						<div class="col-12 mt-2">
@@ -152,7 +152,7 @@ $title = $slug->seo_title!='' ? $slug->seo_title : $slug->title;
 					</div>
 				</div>
 			</div>
-			<div class="my-4" id="data_align">
+			<div class="my-4 product-desc" id="data_align">
 				{!! $slug->description !!}
 			</div>
 			<div class="col-12 mt-2">

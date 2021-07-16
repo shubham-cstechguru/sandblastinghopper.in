@@ -155,7 +155,7 @@ $whatsapp = preg_replace('/[+\(\)\-\" "]+/', '', $setting->whatsapp);
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          <div class="collapse navbar-collapse my-3" id="navbarSupportedContent" style="margin-left: 250px;">
+          <div class="collapse navbar-collapse my-3" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item" style="text-align:right;">
                 <a class="nav-link" href="{{ url('/') }}">Home </a>
@@ -221,7 +221,7 @@ $whatsapp = preg_replace('/[+\(\)\-\" "]+/', '', $setting->whatsapp);
 
             </div>
           </div>
-          <div class="col-lg-4 col-sm-6">
+          <div class="col-lg-3 col-sm-6">
             <div class="footer-widget about-widget">
               <p class="footer-heading">Top Blog</p>
               <div class="fw-latest-post-widget">
@@ -230,23 +230,23 @@ $whatsapp = preg_replace('/[+\(\)\-\" "]+/', '', $setting->whatsapp);
                   <div class="lp-thumb set-bg">
                     <a href="{{ url('blog/'. $list->slug)}}">
                       @if($list->image!='')
-                      <img src="{{url('imgs/blogs/'.$list->image)}}" alt="{{ $list->title }}">
+                      <img class="lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/blogs/'.$list->image)}}" alt="{{ $list->title }}">
                       @else
-                      <img class="" src="{{url('imgs/unavailable-image-300x225.jpg')}}" alt="{{ $list->title }}">
+                      <img class="lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/unavailable-image-300x225.jpg')}}" alt="{{ $list->title }}">
                       @endif
                     </a>
                   </div>
                   <div class="lp-content">
                     <p class="footer-blog mb-0">{{ $list->title }}</p>
                     {{--<span>{{ $list->updated_at }}</span>--}}
-                   {{-- <a href="{{ url('blog/'. $list->slug)}}" class="readmore">Read More</a>--}}
+                    {{-- <a href="{{ url('blog/'. $list->slug)}}" class="readmore">Read More</a>--}}
                   </div>
                 </div>
                 @endforeach
               </div>
             </div>
           </div>
-          <div class="col-lg-3 col-sm-6">
+          <div class="col-lg-4 col-sm-6">
             <div class="footer-widget contact-widget">
               <p class="footer-heading">Get in Touch</p>
               <div class="con-info">
@@ -402,7 +402,18 @@ $whatsapp = preg_replace('/[+\(\)\-\" "]+/', '', $setting->whatsapp);
 
     gtag('config', 'UA-180981805-1');
   </script>
+  <script>
+    $(window).on('load', function() {
+      $('.lazy-load').each(function(event) {
+        let self = $(this);
+        self.attr('src', self.data('src')).removeAttr('data-src');
 
+        self.on('load', function() {
+          $(this).removeClass('lazy-load');
+        });
+      });
+    });
+  </script>
 
 </body>
 

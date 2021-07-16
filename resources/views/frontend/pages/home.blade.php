@@ -12,9 +12,9 @@
         <div class="card">
           <a href="{{ url('product/'. $list->slug)}}">
             @if($list->image!='')
-            <img src="{{url('imgs/product/'.$list->image)}}" alt="{{ $list->title }}">
+            <img class="lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/product/'.$list->image)}}" alt="{{ $list->title }}">
             @else
-            <img class="" src="{{url('imgs/unavailable-image-300x225.jpg')}}" alt="{{ $list->title }}">
+            <img class="lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/unavailable-image-300x225.jpg')}}" alt="{{ $list->title }}">
             @endif
           </a>
           <div class="pi-text" style="min-height:50px;">
@@ -33,7 +33,7 @@
 
 <div class="mt-0" style="margin-bottom: 100px;">
   <div class="row self-adhesive-head">
-    <a href="" style="width: 20px;"><img src="{{ url('imgs/zero.gif')}}" alt="Self-Adhesive Specialty Tapes &amp; Labels"></a>
+    <a href="" style="width: 20px;"><img class="lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{ url('imgs/zero.gif')}}" alt="Self-Adhesive Specialty Tapes &amp; Labels"></a>
     <strong>
       <span class="cpo">
         <a href="selfadhesive-tapes-labels.html">Sand Blasting Machine & Blast Rooms Labels</a>
@@ -92,7 +92,7 @@
         <div class="col-lg-5">
           <div class="side-contant sticky">
             <div class="m8 sw1">
-              <img src="imgs/hopper.jpg" ALT="" class="side-img-brdr">
+              <img class="side-img-brdr lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="imgs/hopper.jpg" alt="">
             </div>
             <div style="clear:both"></div>
           </div>
@@ -141,9 +141,9 @@
                   <div class="card">
                     <a href="{{ url('blog/'. $list->slug)}}">
                       @if($list->image!='')
-                      <img src="{{url('imgs/blogs/'.$list->image)}}" alt="{{ $list->title }}">
+                      <img class="lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/blogs/'.$list->image)}}" alt="{{ $list->title }}">
                       @else
-                      <img class="" src="{{url('imgs/unavailable-image-300x225.jpg')}}" alt="{{ $list->title }}">
+                      <img class="lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/unavailable-image-300x225.jpg')}}" alt="{{ $list->title }}">
                       @endif
                     </a>
                     <div class="pi-text my-3" style="min-height:50px;">
@@ -163,12 +163,24 @@
       <!-- Start Section -->
       <div class="tell-us-contant mt-5">
         <p class="tell-us-head">Tell Us What Are You Looking For ?</p>
-        <form class="mx-3">
-
-          <textarea class="form-control form-group" rows="4" cols="100" placeholder="Describe Your requirement in details :"></textarea>
-          <input type="number" name="number" class="form-control form-group" placeholder="Enter Your Number">
-          <input type="text" name="name" class="form-control form-group" placeholder="Enter Your Name">
-          <button class="btn search-btn mb-3" style="margin: auto;">Send it Now</button>
+        <p class="mx-3" id="ajax_message"></p>
+        <form class="mx-3" id="inquiry_form" data-url="{{ route('ajax-route') }}">
+          <p id="ajax_message"></p>
+          <div class="form-group">
+            <textarea required class="form-control message" id="user_message" name="user_message" rows="4" cols="100" placeholder="Describe Your requirement in details :"></textarea>
+          </div>
+          <div class="form-group">
+            <input required type="tel" name="user_mobile" id="user_mobile" class="form-control mobile" placeholder="Enter Your Number">
+          </div>
+          <div class="form-group">
+            <input required type="email" name="user_email" id="user_email" class="form-control email" placeholder="Enter Your Email Id">
+          </div>
+          <div class="form-group">
+            <input required type="text" name="user_name" id="user_name" class="form-control name" placeholder="Enter Your Name">
+          </div>
+          <div class="form-group">
+            <button class="btn search-btn mb-3" style="margin: auto;">Send it Now</button>
+          </div>
         </form>
       </div>
 

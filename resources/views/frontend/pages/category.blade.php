@@ -11,7 +11,7 @@ $description = $seo_des;
 @section('contant')
 
 <div class="row">
-	<div class="col-lg-3 px-0 mt-1">
+	<div class="col-lg-3 px-0 mt-1" id="sidebar_data">
 		<div class="sticky">
 
 			<p class="product-range my-0">All Categories & Products</p>
@@ -28,15 +28,21 @@ $description = $seo_des;
 
 					<!-- Card header -->
 
-					<div class="card-header custom-card-header d-flex justify-content-between" role="tab" id="headingOne1">
-						<a href="{{ url('/category/'. $list->slug_category) }}">
-							<p class="mb-0 product-left-list">
-								{{ $list->category }}
-							</p>
-						</a>
-						<a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne{{ $list->id }}" aria-expanded="true" aria-controls="collapseOne1">
-							<i class="rotate-icon">»</i>
-						</a>
+					<div class="card-header custom-card-header" role="tab" id="headingOne1">
+						<div class="row">
+							<div class="col-10">
+								<a href="{{ url('category/'. $list->slug_category) }}">
+									<span class="mb-0 product-left-list">
+										<p style="overflow: hidden; min-width: 5ch;  max-width: 25ch; text-overflow: ellipsis; white-space: nowrap;">{{ $list->category }}</p>&nbsp;&nbsp;
+									</span>
+								</a>
+							</div>
+							<div class="col-2">
+								<a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne{{ $list->id }}" aria-expanded="false" aria-controls="collapseOne1" style="padding-right:65px;">
+									<i class="expand_caret caret fa fa-angle-down" style="font-size:14px"></i>
+								</a>
+							</div>
+						</div>
 					</div>
 					@if($id)
 					<!-- Card body -->
@@ -129,9 +135,9 @@ $description = $seo_des;
 					<div class="sticky">
 						<div class="img-border">
 							@if($list->image!='')
-							<img src="{{url('imgs/product/'.$list->image)}}" alt="{{ $list->title }}">
+							<img class="lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/product/'.$list->image)}}" alt="{{ $list->title }}">
 							@else
-							<img class="" src="{{url('imgs/unavailable-image-300x225.jpg')}}" width="251" height="251">
+							<img class="lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/unavailable-image-300x225.jpg')}}" width="251" height="251">
 							@endif
 						</div>
 
@@ -142,7 +148,7 @@ $description = $seo_des;
 					<div class="table-responsive">
 						<p>{!! $list->table !!}</p>
 					</div>
-					<p class="my-4">
+					<p class="my-4 product-desc">
 						{{ $list->excerpt }}
 					</p>
 					<div class="row">
