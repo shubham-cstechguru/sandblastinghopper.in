@@ -14,7 +14,7 @@ class BlogController extends BaseController {
     public function index() {
     	
         
-        $blog = Blog::latest()->paginate(16);
+        $blog = Blog::latest()->paginate(12);
         $data = compact('blog');
     	
     	return view('frontend.pages.blog',$data);

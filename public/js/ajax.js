@@ -96,7 +96,7 @@ $(function () {
 
           if (response.status) {
             $("#ajax_message").html();
-            $("#ajax_message").html("Successfull");
+            $("#ajax_message").html("Enquiry sent successfully");
           }
           else {
             $("#ajax_message").html();
@@ -136,11 +136,11 @@ $(function () {
           if (response.status) {
             document.getElementById("contact_form").reset();
             $("#res_message").html();
-            $("#res_message").html("Sent Successfully");
+            $("#res_message").html("Message sent successfully");
           }
           else {
             $("#res_message").html();
-            $("#res_message").html('faild');
+            $("#res_message").html('failed');
           }
 
         },
@@ -149,4 +149,76 @@ $(function () {
     document.getElementById("contact_form").reset();
   });
 
+  $("#search_form").on('keyup change', function (e) {
+    e.preventDefault();
+
+    var url = $(this).attr('data-url');
+    var search = $('#search').val();
+
+
+    $.ajax({
+      url: url,
+      type: "POST",
+      headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+      data: {
+        search: search,
+      },
+      success: function (response) {
+
+        $(".search-list").html('');
+        $(".search-list").append(response);
+
+      },
+    });
+  });
+
+  $(".productfilter").on('keyup change', function (e) {
+    e.preventDefault();
+
+    var url = $('#baseUrl').data('url');
+
+    var search = [];
+
+    $('input[name="searchtext[]"]:checked').each(function () {
+      search.push($(this).val());
+    });
+
+    $.ajax({
+      url: url,
+      type: "GET",
+      headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+      data: {
+        search: search,
+      },
+      success: function (response) {
+
+        $("#prod_list").html(response);
+
+        $('.lazy-load').each(function (event) {
+          let self = $(this);
+          self.attr('src', self.data('src')).removeAttr('data-src');
+
+          self.on('load', function () {
+            $(this).removeClass('lazy-load');
+            $(this).addClass('singletop');
+          });
+        });
+
+      },
+    });
+
+  });
+
 })
+
+$(window).on('load', function () {
+  $('.lazy-load').each(function (event) {
+    let self = $(this);
+    self.attr('src', self.data('src')).removeAttr('data-src');
+
+    self.on('load', function () {
+      $(this).removeClass('lazy-load');
+      $(this).addClass('singletop');
+    });
+  });
+});

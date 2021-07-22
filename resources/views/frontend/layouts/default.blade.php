@@ -43,14 +43,13 @@ $whatsapp = preg_replace('/[+\(\)\-\" "]+/', '', $setting->whatsapp);
   <meta name="twitter:image:src" content="">
   <meta name="csrf-token" content="{{csrf_token()}}">
 
+  {{Html::style('css/slick.css')}}
   {{Html::style('css/bootstrap.min.css')}}
   {{Html::style('css/style.css')}}
   {{Html::style('css/responsive.css')}}
   {{Html::style('icomoon/style.css')}}
   {{Html::style('css/fontawesome.css')}}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
   <link rel="shortcut icon" href="#" type="image/x-icon" />
   <link rel="apple-touch-icon" href="#" />
   <style>
@@ -144,16 +143,17 @@ $whatsapp = preg_replace('/[+\(\)\-\" "]+/', '', $setting->whatsapp);
           <img src="{{ url('imgs/'.$setting->logo) }}" alt="{{ $setting->sitename }}">
         </a>
       </div> -->
-      <div class="col-12">
+      <div class="col-10 col-md-10 my-2">
         <nav class="navbar navbar-expand-lg navbar-light">
 
-          <a class="navbar-brand" href="{{url('/')}}">
-            <img src="{{ url('imgs/'.$setting->logo) }}" alt="$setting->sitename" alt="">
+          <a class="navbar-brand m-0 p-0" href="{{url('/')}}">
+            <img src="{{ url('imgs/'.$setting->logo) }}" alt="$setting->sitename">
           </a>
 
           <button class="navbar-toggler" style="margin-left:auto;" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
+
 
           <div class="collapse navbar-collapse my-3" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
@@ -176,6 +176,11 @@ $whatsapp = preg_replace('/[+\(\)\-\" "]+/', '', $setting->whatsapp);
 
           </div>
         </nav>
+      </div>
+      <div class="col-2 col-md-2 my-lg-2">
+        <div class="my-3 py-md-3 d-flex" style="color: #cd942a; cursor: pointer;" onclick="open_search()">
+          <i class="fa fa-search mt-1"></i> &nbsp; &nbsp; <p class="d-none d-sm-none d-md-none d-lg-block d-xl-block p-0 m-0">Search</p>
+        </div>
       </div>
     </div>
     @show
@@ -200,27 +205,27 @@ $whatsapp = preg_replace('/[+\(\)\-\" "]+/', '', $setting->whatsapp);
       </div>
       <div class="container">
         <div class="row">
-          <div class="col-lg-3 col-sm-6">
+          <div class="col-lg-5 col-sm-6">
             <div class="footer-widget about-widget">
 
               <p class="footer-heading">About</p>
-              <p>Abrasive blasting, more commonly known as sandblasting, is the operation of forcibly propelling a stream of abrasive material against a surface under high pressure to smooth a rough surface, roughen a smooth surface, shape a surface or remove surface contaminants.</p>
+              <p>Sand Blasting Hopper is the leading manufacturers of sand blasting machine, shot blasting machine, grit blasting machine,and sand blasting hopper, etc. Our company is manufacturing a wide range of Portable Blasters, Grit Blasting Cabinet, Blast Room, Dust Collector Unit, Industrial Blowers, etc.</p>
 
             </div>
           </div>
-          <div class="col-lg-2 col-sm-6">
-            <div class="footer-widget about-widget">
-              <p class="footer-heading">Quick Link</p>
-              <ul>
-                <li><a href="{{ url('/') }}">Home</a></li>
-                <li><a href="{{ url('/about') }}">About Us</a></li>
-                <li><a href="{{ url('/blog') }}">Blog</a></li>
-                <li><a href="{{ url('/product') }}">Product</a></li>
-                <li><a href="{{ url('/contact') }}">Contact Us</a></li>
-              </ul>
+          <!--<div class="col-lg-2 col-sm-6">-->
+          <!--  <div class="footer-widget about-widget">-->
+          <!--    <p class="footer-heading">Quick Link</p>-->
+          <!--    <ul>-->
+          <!--      <li><a href="{{ url('/') }}">Home</a></li>-->
+          <!--      <li><a href="{{ url('/about') }}">About Us</a></li>-->
+          <!--      <li><a href="{{ url('/blog') }}">Blog</a></li>-->
+          <!--      <li><a href="{{ url('/product') }}">Product</a></li>-->
+          <!--      <li><a href="{{ url('/contact') }}">Contact Us</a></li>-->
+          <!--    </ul>-->
 
-            </div>
-          </div>
+          <!--  </div>-->
+          <!--</div>-->
           <div class="col-lg-3 col-sm-6">
             <div class="footer-widget about-widget">
               <p class="footer-heading">Top Blog</p>
@@ -230,9 +235,9 @@ $whatsapp = preg_replace('/[+\(\)\-\" "]+/', '', $setting->whatsapp);
                   <div class="lp-thumb set-bg">
                     <a href="{{ url('blog/'. $list->slug)}}">
                       @if($list->image!='')
-                      <img class="lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/blogs/'.$list->image)}}" alt="{{ $list->title }}">
+                      <img class="lazy-load lazyimg" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/blogs/'.$list->image)}}" alt="{{ $list->title }}">
                       @else
-                      <img class="lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/unavailable-image-300x225.jpg')}}" alt="{{ $list->title }}">
+                      <img class="lazy-load lazyimg" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/unavailable-image-300x225.jpg')}}" alt="{{ $list->title }}">
                       @endif
                     </a>
                   </div>
@@ -305,13 +310,36 @@ $whatsapp = preg_replace('/[+\(\)\-\" "]+/', '', $setting->whatsapp);
     </ul>
   </div>
 
+
   <!-- ALL JS FILES -->
   {{ Html::script('js/jquery.min.js') }}
   {{ Html::script('js/popper.min.js') }}
   {{ Html::script('js/bootstrap.min.js') }}
   {{ Html::script('js/ajax.js') }}
 
-  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal search-modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true" style="background: rgba(0, 0, 0, 0.5);">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span type="button" class="close btn-lg" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </span>
+        </div>
+        <div class="modal-body">
+
+          {{ Form::open(['id'=>'search_form', 'data-url'=>route('ajax-search')]) }}
+          <div class="md-form">
+            {{ Form::text('search', '', ['class' => 'form-control validate name py-3 search', 'id'=>'search', 'placeholder'=>'Search Product','required'=>'required'])}}
+          </div>
+          {{ Form::close() }}
+
+          <ul class="list-group search-list">
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal enquiry-modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -352,17 +380,26 @@ $whatsapp = preg_replace('/[+\(\)\-\" "]+/', '', $setting->whatsapp);
     </div>
   </div>
   {{ Html::script('//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js') }}
+
   <script>
     function open_pop() {
-      $('.modal').modal('show');
+      $('.enquiry-modal').modal('show');
     }
+
+    function open_search() {
+      $('.search-modal').modal('show');
+    }
+
+    $('.search-modal').on('shown.bs.modal', function() {
+      $('input:text:visible:last').focus();
+    })
+
     $('.responsive').slick({
 
       infinite: true,
       speed: 3000,
       slidesToShow: 4,
       slidesToScroll: 4,
-      arrows: false,
       autoplay: true,
       autoplaySpeed: 5000,
       responsive: [{
@@ -371,7 +408,8 @@ $whatsapp = preg_replace('/[+\(\)\-\" "]+/', '', $setting->whatsapp);
             slidesToShow: 3,
             slidesToScroll: 3,
             infinite: false,
-            dots: false
+            dots: false,
+            arrows: true,
           }
         },
         {
@@ -402,18 +440,7 @@ $whatsapp = preg_replace('/[+\(\)\-\" "]+/', '', $setting->whatsapp);
 
     gtag('config', 'UA-180981805-1');
   </script>
-  <script>
-    $(window).on('load', function() {
-      $('.lazy-load').each(function(event) {
-        let self = $(this);
-        self.attr('src', self.data('src')).removeAttr('data-src');
 
-        self.on('load', function() {
-          $(this).removeClass('lazy-load');
-        });
-      });
-    });
-  </script>
 
 </body>
 

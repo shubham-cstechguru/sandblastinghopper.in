@@ -30,9 +30,9 @@
                             <div class="card">
                                 <a href="{{ url('blog/'. $list->slug)}}">
                                     @if($list->image!='')
-    								<img class="lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/blogs/'.$list->image)}}" alt="{{ $list->title }}" width="251">
+    								<img class="lazy-load lazyimg" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/blogs/'.$list->image)}}" alt="{{ $list->title }}" width="251">
     								@else
-    								<img class="lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/unavailable-image-300x225.jpg')}}" alt="{{ $list->title }}">
+    								<img class="lazy-load lazyimg" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/unavailable-image-300x225.jpg')}}" alt="{{ $list->title }}">
     								@endif
                                 </a>
                                 <div class="pi-text my-3" style="min-height:50px;">

@@ -32,16 +32,15 @@
 </div>
 
 <div class="mt-0" style="margin-bottom: 100px;">
-  <div class="row self-adhesive-head">
-    <a href="" style="width: 20px;"><img class="lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{ url('imgs/zero.gif')}}" alt="Self-Adhesive Specialty Tapes &amp; Labels"></a>
+  <div class="self-adhesive-head text-center">
     <strong>
       <span class="cpo">
-        <a href="selfadhesive-tapes-labels.html">Sand Blasting Machine & Blast Rooms Labels</a>
+        Sand Blasting Machine & Blast Rooms Labels
       </span>
     </strong>
   </div>
-  <div class="adhesive-list mt-4">
-    <ul>
+  <div class="adhesive-list mt-4 container">
+    <ul class="d-flex flex-wrap">
       @foreach($category as $list)
       <li><a href="{{url('category/'.$list->slug_category)}}"> {{ $list-> category }}</a></li>
       @endforeach

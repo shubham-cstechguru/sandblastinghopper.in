@@ -103,7 +103,7 @@ $title = $slug->seo_title!='' ? $slug->seo_title : $slug->title;
 	</div>
 
 	<div class="col-lg-9 mt-1">
-		<div class="col-md-12" style="padding:0px;">
+		<div class="col-md-12" style="padding:0px; text-align: center;">
 			<img class="lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{ url('imgs/blastrooms_banner.jpg')}}" height="150" alt="{{ $slug->title }}">
 		</div>
 		<div class="col-md-12 mt-1" style="background: #f1f1f1">
@@ -117,7 +117,7 @@ $title = $slug->seo_title!='' ? $slug->seo_title : $slug->title;
 		</div>
 		<div class="my-4">
 			<h1>{{ $slug->title }}</h1>
-			<p class="mt-3" style="text-align: justify;line-height:45px; font-size:17px;">{{ $slug->excerpt }}</p>
+			<p class="mt-3" style="text-align: justify;line-height:40px; font-size:16px;">{{ $slug->excerpt }}</p>
 		</div>
 
 		<div class="mt-4">

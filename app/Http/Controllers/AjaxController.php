@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\model\Inquiry;
 use App\model\Setting;
+use App\model\Technology;
 
 class AjaxController extends BaseController
 {
@@ -64,5 +65,24 @@ class AjaxController extends BaseController
             } else {
                   return response()->json(['status' => 0]);
             }
+      }
+
+      public function search(Request $request)
+      {
+            if (!empty(request('search'))) {
+                  if ($request->search != '') {
+                        $products = Technology::where('title', 'LIKE', '%' . $request->search . '%')->paginate(5);
+                        $li = '';
+                        foreach ($products as $product) {
+                              $li .= '<li class="list-group-item"><a href="' . route('productindex', $product->slug) . '">' . $product->title . '</a></li>';
+                        }
+                  } else {
+                        $li = '<li>No Suggestion</li>';
+                  }
+            } else {
+                  $li = '<li>No Suggestion</li>';
+            }
+
+            return response()->json($li, 200);
       }
 }

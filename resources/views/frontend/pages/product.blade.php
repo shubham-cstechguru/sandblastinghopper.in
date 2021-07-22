@@ -6,52 +6,56 @@
 @section('canonical',URL::current())
 @section('contant')
 
-<div class="page-top-info row">
-    <div class="container">
-        <div class="site-pagination">
-            <a href="{{ url('/') }}">Home</a> /
-            @if(isset($name)) {{ $name }} @else Product @endif
-        </div>
-    </div>
-</div>
+<div class="row">
+    <div class="col-lg-3 pt-4 pb-0 mt-1" id="sidebar_data">
+        <div class="sticky">
 
-<!--</section>-->
-<section class="row product-filter-section py-5">
-    <div class="container">
-        <div class="section-title">
-            @if(isset($name))
-            <h2 class="text-center" style="text-transform: uppercase;">{{ $name }}</h2>
-            @else
-            <h2 class="text-center" style="text-transform: uppercase;">PRODUCTS</h2>
-            @endif
-            <p class="pt-2 text-center my-5">Our organization is known to be one of the truthworthy Supplier, Manufacturers, and Exporters of the Shot Blasting Machines, Sandblasting machine, Thermal Spray Guns, and Abrasive Blasting Media.</p>
-        </div>
-        <div class="row">
-            @foreach($product as $list)
-            <div class="col-lg-3 col-sm-6 mb-4">
-                <div class="product-item">
-                    <div class="pi-pic">
-                        <div class="card">
-                            <a href="{{url('product/'.$list->slug) }}">
-                                @if($list->image!='')
-                                <img class="lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/product/'.$list->image)}}" alt="{{ $list->title }}" width="251">
-                                @else
-                                <img class="lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/unavailable-image-300x225.jpg')}}" alt="{{ $list->title }}">
-                                @endif
-                            </a>
-                            <div class="pi-text my-3" style="min-height:50px;">
-                                <a href="{{ route('productindex', $list->slug) }}" style="padding:0;">
-                                    <p class="text-center font-weight-bold">{{$list->title}}</p>
-                                </a>
+            <p class="product-range my-0">Filter By Categories</p>
+            <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+
+                <!-- Accordion card -->
+
+                <div class="custom-card">
+
+                    <!-- Card header -->
+
+                    <div class="mx-2" role="tab" id="headingOne1">
+                        @foreach( $category1 as $list )
+                        <div class="form-check productfilter mt-2">
+                            <div class="row">
+                                <div class="col-2">
+                                    <input type="checkbox" name="searchtext[]" class="form-check-input filter" id="{{ $list->id }}" value="{{ $list->id }}">
+                                </div>
+                                <div class="col-10">
+                                    <label style="overflow: hidden; min-width: 5ch;  max-width: 25ch; text-overflow: ellipsis; white-space: nowrap;" for="{{ $list->id }}" class="form-check-label">{{ $list->category }}</label>
+                                </div>
                             </div>
                         </div>
+                      
+                        @endforeach
                     </div>
                 </div>
             </div>
-            @endforeach
         </div>
-        {{ $product->links() }}
+        <span id="baseUrl" data-url="{{ route('productfilter') }}"></span>
+
     </div>
-</section>
+
+    <div class="col-lg-9 mt-1">
+        <div class="page-top-info row">
+            <div class="container">
+                <div class="site-pagination">
+                    <a href="{{ url('/') }}">Home</a> /
+                    @if(isset($name)) {{ $name }} @else Product @endif
+                </div>
+            </div>
+        </div>
+
+        <!--</section>-->
+        <section class="row product-filter-section py-5" id="prod_list">
+            @include('frontend.templates.product', compact('product'))
+        </section>
+    </div>
+</div>
 
 @stop

@@ -22,7 +22,10 @@
 
 @media (min-width: 992px) {
     #navbarSupportedContent {
-        margin-left: 250px !important;
+        margin-left: 50px !important;
+    }
+    .adhesive-list ul li {
+        width: 22%;
     }
 }
 
@@ -300,6 +303,9 @@
     .footer_blog, .footer_blog_last {
         margin-top: 20px;
     }
+    .adhesive-list ul li {
+        width: 30.3%;
+    }
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
@@ -514,7 +520,7 @@
         margin-bottom: 5px;
     }
     .navbar-brand img {
-        width: 175px;
+        width: 110px;
     }
     .top-header {
         background-image: none;
@@ -763,5 +769,8 @@
     .footer_blog_last {
         margin-top: 35px !important;
         float: left;
+    }
+    .adhesive-list ul li {
+        width: 41%;
     }
 }

@@ -24,7 +24,7 @@ $title = $slug->seo_title!='' ? $slug->seo_title : $slug->title;
     </div>
     <div class="my-4">
       <h1>{{ $slug->title }}</h1>
-      <p class="mt-3" style="text-align: justify;line-height:45px; font-size:17px;">{{ $slug->excerpt }}</p>
+      <p class="mt-3" style="text-align: justify;line-height:40px; font-size:16px;">{{ $slug->excerpt }}</p>
     </div>
 
     <div class="mt-4">
