@@ -135,9 +135,9 @@ $title = $slug->seo_title!='' ? $slug->seo_title : $slug->title;
 					<div class="sticky">
 						<div>
 							@if($slug->image!='')
-							<img class="lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/product/'.$slug->image)}}" alt="{{ $slug->title }}">
+							<img class="lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/product/'.$slug->image)}}" alt="{{ $slug->title }}" style="@if(!empty($slug->product_img)) cursor: pointer; @endif" onclick="@if(!empty($slug->product_img)) openModal() @endif">
 							@else
-							<img class="lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/unavailable-image-300x225.jpg')}}" alt="{{ $list->title }}">
+							<img class="lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/unavailable-image-300x225.jpg')}}" alt="{{ $list->title }}" style="@if(!empty($slug->product_img)) cursor: pointer; @endif" onclick="@if(!empty($slug->product_img)) openModal() @endif">
 							@endif
 						</div>
 						<div class="col-12 mt-2">
@@ -164,5 +164,26 @@ $title = $slug->seo_title!='' ? $slug->seo_title : $slug->title;
 
 	</div>
 </div>
+
+@if(!empty($slug->product_img))
+<div class="imagegallery">
+	<div id="myModal" class="modal">
+		<span class="close cursor" onclick="closeModal()">&times;</span>
+		<div class="modal-content">
+
+			@foreach($slug->product_img as $img)
+			<div class="mySlides">
+				<img src="{{url('imgs/product/'.$img)}}" style="width:100%">
+			</div>
+			@endforeach
+
+			<!-- Next/previous controls -->
+			<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+			<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+		</div>
+	</div>
+</div>
+@endif
 
 @stop

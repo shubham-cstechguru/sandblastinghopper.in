@@ -298,6 +298,18 @@ $setting = App\Model\Setting::findOrFail(1);
             }
         </script>
 
+        <script>
+            var addButton = $('#add'); //Add button selector
+            var wrapper = $('#dynamicRow'); //Input field wrapper
+            $(addButton).click(function() {
+                $(wrapper).append(' <div class="mt-1 d-flex">{{ Form::file('images[]', ['class' => 'form-control input-row mr-2', 'id' => 'images',  'accept' => 'image/x-png,image/jpeg,image/jpg']) }}<a type="button" name="button" class="text-danger remove-row" href="javascript:void(0);">          <i class="fas fa-minus mr-1"></i>        </a> </div>');
+            });
+
+            $(wrapper).on('click', '.remove-row', function(e) {
+                e.preventDefault();
+                $(this).parent('.d-flex').remove();
+            });
+        </script>
 </body>
 
 </html>

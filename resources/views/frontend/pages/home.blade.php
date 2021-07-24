@@ -51,7 +51,7 @@
 <div>
   <div>
     <div>
-      <h1 class="my-4 text-center" style="display:inline-block;font-size:1.2rem;"> <span style="font-size:1.2rem">Welcome to </span style="font-size:1.5rem">Sand Blasting Hopper Manufacturer's in India
+      <h1 class="my-4 text-center" style="display:inline-block;font-size:1.2rem;"> <span style="font-size:1.2rem">Welcome to </span>Sand Blasting Hopper Manufacturer's in India
       </h1>
 
       <div class="cosmos-list">
