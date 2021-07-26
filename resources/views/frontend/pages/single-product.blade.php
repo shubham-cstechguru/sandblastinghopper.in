@@ -133,7 +133,7 @@ $title = $slug->seo_title!='' ? $slug->seo_title : $slug->title;
 			<div class="row">
 				<div class="col-lg-4 col-12 mt-3">
 					<div class="sticky">
-						<div>
+						<div style="padding:0px; text-align: center;">
 							@if($slug->image!='')
 							<img class="lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/product/'.$slug->image)}}" alt="{{ $slug->title }}" style="@if(!empty($slug->product_img)) cursor: pointer; @endif" onclick="@if(!empty($slug->product_img)) openModal() @endif">
 							@else

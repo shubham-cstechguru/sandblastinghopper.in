@@ -1,7 +1,7 @@
 <div class="container">
     <div class="section-title">
-        @if(isset($name))
-        <h2 class="text-center" style="text-transform: uppercase;">{{ $name }}</h2>
+        @if(isset($name->name))
+        <h2 class="text-center" style="text-transform: uppercase;">{{ $name->name }}</h2>
         @else
         <h2 class="text-center" style="text-transform: uppercase;">PRODUCTS</h2>
         @endif

@@ -25,6 +25,8 @@
                             <div class="row">
                                 <div class="col-2">
                                     <input type="checkbox" name="searchtext[]" class="form-check-input filter" id="{{ $list->id }}" value="{{ $list->id }}">
+                                    <input type="hidden" name="name" class="form-check-input name" id="{{ @$name }}" value="{{ @$name->id }}">
+                                    <input type="hidden" name="namec" class="form-check-input namec" id="{{ @$c }}" value="{{ @$c }}">
                                 </div>
                                 <div class="col-10">
                                     <label style="overflow: hidden; min-width: 5ch;  max-width: 25ch; text-overflow: ellipsis; white-space: nowrap;" for="{{ $list->id }}" class="form-check-label">{{ $list->category }}</label>
@@ -46,7 +48,7 @@
             <div class="container">
                 <div class="site-pagination">
                     <a href="{{ url('/') }}">Home</a> /
-                    @if(isset($name)) {{ $name }} @else Product @endif
+                    @if(isset($name)) {{ $name->name }} @else Product @endif
                 </div>
             </div>
         </div>

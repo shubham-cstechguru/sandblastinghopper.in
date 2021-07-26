@@ -21,7 +21,7 @@
                </div>
                <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                     <div class="full text_align_center">
+                     <div class="full text_align_center" style="padding:0px; text-align: center;">
                         <img class="img-responsive lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/abouts/'.$about->image)}}" alt="Adhesive Tape Manufacturer in India"/>   
                       </div>
                   </div>

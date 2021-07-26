@@ -104,8 +104,8 @@ $description = $seo_des;
 	</div>
 
 	<div class="col-lg-9">
-		<div class="py-1">
-			<img src="{{ url('imgs/sand_blasting_hopper_bannner.jpg')}}">
+		<div class="py-1" style="padding:0px; text-align: center;">
+			<img class="lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{ url('imgs/sand_blasting_hopper_bannner.jpg')}}">
 		</div>
 		<div class="col-md-12 mt-1" style="background: #f1f1f1">
 			<div class="frnt-url">
@@ -133,7 +133,7 @@ $description = $seo_des;
 			<div class="row">
 				<div class="col-lg-4 col-12 mt-3">
 					<div class="sticky">
-						<div class="img-border">
+						<div class="img-border" style="text-align: center;">
 							@if($list->image!='')
 							<img class="lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/product/'.$list->image)}}" alt="{{ $list->title }}">
 							@else

@@ -183,12 +183,17 @@ $(function () {
       search.push($(this).val());
     });
 
+    var name = $('.name').val();
+    var namec = $('.namec').val();
+
     $.ajax({
       url: url,
       type: "GET",
       headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
       data: {
         search: search,
+        name: name,
+        namec: namec,
       },
       success: function (response) {
 

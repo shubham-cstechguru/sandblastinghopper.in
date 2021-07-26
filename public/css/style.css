@@ -30,6 +30,10 @@ body {
     width: 100%;
 }
 
+img.lazyslide {
+    width: 100%;
+}
+
 img.singletop {
     width: 100%;
 }

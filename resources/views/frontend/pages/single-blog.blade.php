@@ -10,7 +10,7 @@ $title = $slug->seo_title!='' ? $slug->seo_title : $slug->title;
 
 <div class="row">
   <div class="col-lg-9 mt-1">
-    <div class="col-md-12" style="padding:0px;">
+    <div class="col-md-12" style="padding:0px; text-align: center;">
       <img class="lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{ url('imgs/blastrooms_banner.jpg')}}" height="150" alt="{{ $slug->title }}">
     </div>
     <div class="col-md-12 mt-1" style="background: #f1f1f1">
@@ -40,7 +40,7 @@ $title = $slug->seo_title!='' ? $slug->seo_title : $slug->title;
       <div class="row">
         <div class="mt-3">
 
-          <div class="col-md-12">
+          <div class="col-md-12" style="padding:0px; text-align: center;">
             @if($slug->image!='')
             <img class="lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/blogs/original/'.$slug->image)}}" alt="{{ $slug->title }}">
             @else

@@ -10,11 +10,11 @@
     <div class="product-item">
       <div class="pi-pic">
         <div class="card">
-          <a href="{{ url('product/'. $list->slug)}}">
+          <a href="{{ url('product/'. $list->slug)}}" style="text-align: center;">
             @if($list->image!='')
-            <img class="lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/product/'.$list->image)}}" alt="{{ $list->title }}">
+            <img class="lazy-load lazyslide" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/product/'.$list->image)}}" alt="{{ $list->title }}">
             @else
-            <img class="lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/unavailable-image-300x225.jpg')}}" alt="{{ $list->title }}">
+            <img class="lazy-load lazyslide" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/unavailable-image-300x225.jpg')}}" alt="{{ $list->title }}">
             @endif
           </a>
           <div class="pi-text" style="min-height:50px;">
@@ -90,7 +90,7 @@
         </div>
         <div class="col-lg-5">
           <div class="side-contant sticky">
-            <div class="m8 sw1">
+            <div class="m8 sw1" style="padding: 0px; text-align: center;">
               <img class="side-img-brdr lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="imgs/hopper.jpg" alt="">
             </div>
             <div style="clear:both"></div>
@@ -138,7 +138,7 @@
               <div class="product-item">
                 <div class="pi-pic">
                   <div class="card">
-                    <a href="{{ url('blog/'. $list->slug)}}">
+                    <a href="{{ url('blog/'. $list->slug)}}" style="text-align: center;">
                       @if($list->image!='')
                       <img class="lazy-load" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/blogs/'.$list->image)}}" alt="{{ $list->title }}">
                       @else

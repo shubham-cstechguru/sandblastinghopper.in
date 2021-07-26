@@ -28,7 +28,7 @@
                     <div class="product-item">
                         <div class="pi-pic">
                             <div class="card">
-                                <a href="{{ url('blog/'. $list->slug)}}">
+                                <a href="{{ url('blog/'. $list->slug)}}" style="text-align: center;">
                                     @if($list->image!='')
     								<img class="lazy-load lazyimg" src="{{ url('imgs/loader_2.gif') }}" data-src="{{url('imgs/blogs/'.$list->image)}}" alt="{{ $list->title }}" width="251">
     								@else
