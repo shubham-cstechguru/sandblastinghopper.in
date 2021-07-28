@@ -13,26 +13,29 @@ class LocationController extends Controller
     public function city(Request $request, $id)
     {
         $cities = $request->city;
-
+        
         $productInfo = Technology::findOrFail($id)->toArray();
         // $productInfo = Technology::findOrFail($id);
-
+        
         if (!empty($cities)) {
             foreach ($cities as $city) {
                 $cityInfo = City::select('slug', 'name')->find($city);
                 $arr = $productInfo;
                 unset($arr['id']);
-
+                unset($arr['product_img']);
+                unset($arr['prod_img']);
+                
                 $slug = $arr['slug'] . "-in-" . $cityInfo->slug;
-
+                
                 $is_exists = Technology::where('slug', 'LIKE', $slug)->count();
-
+                
                 if (!$is_exists) {
                     $arr['prod_city'] = $city;
                     $arr['slug'] .= "-in-" . $cityInfo->slug;
                     $arr['title'] .= " in " . $cityInfo->name;
-
+                    
                     $product = new Technology($arr);
+                    // dd($product);
                     $product->save();
                 }
             }
@@ -54,7 +57,9 @@ class LocationController extends Controller
                 $cityInfo = Country::select('slug', 'name')->find($country);
                 $arr = $productInfo;
                 unset($arr['id']);
-
+                unset($arr['product_img']);
+                unset($arr['prod_img']);
+                
                 $slug = $arr['slug'] . "-in-" . $cityInfo->slug;
 
                 $is_exists = Technology::where('slug', 'LIKE', $slug)->count();
