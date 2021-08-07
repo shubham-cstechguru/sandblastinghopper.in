@@ -30,7 +30,7 @@ $title = $slug->seo_title!='' ? $slug->seo_title : $slug->title;
     <div class="mt-4">
       <div class="row main-product-head">
         <div class="col-lg-9 col-7">
-          <h2 class=""><b>{{ $slug->title }}</b></h2>
+          <p class="text-white" style="font-size: 15px;"><b>{{ $slug->title }}</b></p>
         </div>
         <div class="col-lg-3 col-5 pl-5">
           <span class="" onclick="open_pop()">REQUEST CALLBACK</span>

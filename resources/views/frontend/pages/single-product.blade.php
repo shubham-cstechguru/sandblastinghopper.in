@@ -146,7 +146,7 @@ $title = $slug->seo_title!='' ? $slug->seo_title : $slug->title;
 					</div>
 				</div>
 				<div class="col-lg-8 mt-3">
-					<h4>Product Details:</h4>
+					<p>Product Details:</p>
 					<div class="table-responsive">
 						<p>{!! $slug->table !!}
 					</div>

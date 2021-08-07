@@ -29,6 +29,7 @@ class TechnologyController extends Controller
 
 
         $lists1 = $query->paginate(10);
+        $lists1->appends(['title' => $request->title]);
 
         $cities = City::get();
         $countries = Country::get();

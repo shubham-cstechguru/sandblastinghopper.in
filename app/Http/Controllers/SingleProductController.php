@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\model\Category;
 use App\model\City;
-use App\Model\Country;
+use App\model\Country;
 use App\model\Technology;
 use App\model\Faq;
 
@@ -35,7 +35,7 @@ class SingleProductController extends BaseController
 
     public function productcity($city, Technology $slug)
     {
-        $city = City::where('name', $city)->first();
+        $city = City::where('slug', 'LIKE', $city)->first();
         $category1   = Category::with(['product' => function ($q) use ($city) {
             $q->where('prod_city', 'LIKE', $city->id);
         }])->has('product')->get();
@@ -48,7 +48,7 @@ class SingleProductController extends BaseController
 
     public function productcountry($country, Technology $slug)
     {
-        $country = Country::where('name', $country)->first();
+        $country = Country::where('slug', 'LIKE', $country)->first();
         $category1   = Category::with(['product' => function ($q) use ($country) {
             $q->where('prod_country', 'LIKE', $country->id);
         }])->has('product')->get();
